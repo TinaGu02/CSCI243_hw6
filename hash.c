@@ -19,7 +19,7 @@ HashTable *ht_create() {
     return calloc(1, sizeof(HashTable));
 }
 
-void ht_destroy(HashTable *self) {
+void ht_destroy(const HashTable *self) {
     if(self == NULL) {
         return;
     }
@@ -34,7 +34,7 @@ void ht_destroy(HashTable *self) {
     free(self);
 }
 
-void ht_put(HashTable *self, int key, int value) {
+void ht_put(const HashTable *self, int key, int value) {
     unsigned int unsigned_key = key;
     size_t location = unsigned_key % NUM_BUCKETS; 
     Entry *item = self->buckets[location];
@@ -56,7 +56,20 @@ void ht_put(HashTable *self, int key, int value) {
     self->size++; 
 }
 
-int ht_get(HashTable *self, int key, int *found) {
+int ht_get(const HashTable *self, int key, int *found) {
+    unsigned int unsigned_key = key; 
+    size_t location = unsigned_key % NUM_BUCKETS; 
+    Entry *item = self->buckets[location];
+
+    while(item != NULL){
+        unsigned int existing = item->key; 
+        if(existing == unsigned_key) {
+            *found = 1;
+            return item->value;
+        }
+        item = item->next;
+    }
+    *found = 0; 
     return 0;
 }
 
