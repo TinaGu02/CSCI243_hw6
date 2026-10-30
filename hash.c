@@ -1,3 +1,11 @@
+/**
+ * @file hash.c
+ * @brief Integer-to-integer hash table using separate chaining.
+ *
+ * @author Tina Guo <tg6798@rit.edu>
+ * @course CSCI-243 Homework 6
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "hash.h"
