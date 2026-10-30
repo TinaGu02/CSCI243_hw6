@@ -1,0 +1,59 @@
+commit 810a97d9a5862d5da7f05785dcf853dad81ffd86
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 19:07:11 2026 -0400
+
+    Add file header
+
+commit 2352c4a190fdd7480b17aeede86462812fe56ebd
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 19:03:07 2026 -0400
+
+    Implement ht_contains, ht_remove, ht_size, fix parameter mimatch
+
+commit 69ab5ab3cc21a363e05e1ec75a08dc7d5fc11471
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 18:38:25 2026 -0400
+
+    Implement ht_get
+
+commit cb0f41186ec319be2b2dd799585f1c952d9a136f
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 18:24:41 2026 -0400
+
+    Add function stubs for autograder
+
+commit a48ffdb29c32f2753fe35cb24ed33c431610005a
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 18:20:05 2026 -0400
+
+    Implement ht_put with duplicate handing
+
+commit c98a6c581d494aa35416c9807ade444c55716030
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 17:33:32 2026 -0400
+
+    Delete: Makefile from repo & edit hash.c
+
+commit 08041f50119c0a6d45c63b87e3ac0f4251e3e7cb
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 17:21:42 2026 -0400
+
+    Fix: accidentally deleted includes
+
+commit 62f3f8622796293046a11cae1309ecd591830927
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 17:15:06 2026 -0400
+
+    Implemented ht_create and ht_destroy
+
+commit 238cf73093eb44427e354e48398c12e0a575cc77
+Author: Tina Guo <tg6798@rit.edu>
+Date:   Fri Oct 30 16:16:38 2026 -0400
+
+    Baseline: supplied hash.h
+
+commit 0e17223d372e66881a7b693f9d421f817b28e8f8
+Author: Tina Guo <tg6798@g.rit.edu>
+Date:   Fri Oct 30 16:14:43 2026 -0400
+
+    Initial commit
