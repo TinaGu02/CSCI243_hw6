@@ -33,3 +33,25 @@ void ht_destroy(HashTable *self) {
     }
     free(self);
 }
+
+void ht_put(HashTable *self, int key, int value) {
+    unsigned int unsigned_key = key;
+    size_t location = unsigned_key % NUM_BUCKETS; 
+    Entry *item = self->buckets[location];
+
+    while(item != NULL) {
+        unsigned int existing = item->key;
+        if(existing == unsigned_key) {
+            item->value = value;
+            return;
+        } 
+        item = item->next;
+    }
+
+    item = malloc(sizeof *item);
+    item->key = unsigned_key;
+    item->value = value;
+    item->next = self->buckets[location];
+    self->buckets[location] = item;
+    self->size++; 
+}
