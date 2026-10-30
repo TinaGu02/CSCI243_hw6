@@ -19,7 +19,7 @@ HashTable *ht_create() {
     return calloc(1, sizeof(HashTable));
 }
 
-void ht_destroy(const HashTable *self) {
+void ht_destroy(HashTable *self) {
     if(self == NULL) {
         return;
     }
@@ -34,7 +34,7 @@ void ht_destroy(const HashTable *self) {
     free(self);
 }
 
-void ht_put(const HashTable *self, int key, int value) {
+void ht_put(HashTable *self, int key, int value) {
     unsigned int unsigned_key = key;
     size_t location = unsigned_key % NUM_BUCKETS; 
     Entry *item = self->buckets[location];
@@ -73,14 +73,46 @@ int ht_get(const HashTable *self, int key, int *found) {
     return 0;
 }
 
-int ht_contains(HashTable *self, int key) {
+int ht_contains(const HashTable *self, int key) {
+    unsigned int unsigned_key = key;
+    size_t location = unsigned_key % NUM_BUCKETS; 
+    Entry *item = self->buckets[location];
+
+    while(item != NULL) {
+        unsigned int existing = item->key;
+        if(existing == unsigned_key) {
+            return 1;
+        } 
+        item = item->next;
+    }
     return 0;
 }
 
 int ht_remove(HashTable *self, int key) {
+    unsigned int unsigned_key = key;
+    size_t location = unsigned_key % NUM_BUCKETS; 
+    Entry *item = self->buckets[location];
+    Entry *previous_item = NULL; 
+
+    while(item != NULL) {
+        unsigned int existing = item->key;
+        if(existing == unsigned_key) {
+            if(previous_item == NULL) {
+                self->buckets[location] = item->next;
+            } else {
+                previous_item->next = item->next;
+            }
+            free(item);
+            self->size--; 
+            return 1;
+        } 
+        previous_item = item;
+        item = item->next;
+    }
     return 0;
 }
 
+
 size_t ht_size(const HashTable *self) {
-    return 0;
+    return self->size;
 }
