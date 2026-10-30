@@ -55,3 +55,19 @@ void ht_put(HashTable *self, int key, int value) {
     self->buckets[location] = item;
     self->size++; 
 }
+
+int ht_get(HashTable *self, int key, int *found) {
+    return 0;
+}
+
+int ht_contains(HashTable *self, int key) {
+    return 0;
+}
+
+int ht_remove(HashTable *self, int key) {
+    return 0;
+}
+
+size_t ht_size(const HashTable *self) {
+    return 0;
+}
